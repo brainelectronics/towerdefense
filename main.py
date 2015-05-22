@@ -23,7 +23,13 @@ class TowerDefense(object):
         print(dt)
         self.logic.update(dt)
         self.gui.redraw()
+"""
+towerDefense = TowerDefense()
+pyglet.clock.schedule(towerDefense.update)
+pyglet.app.run()
 
+"""
 if __name__ == '__main__':
     towerDefense = TowerDefense()
     towerDefense.main()
+ 

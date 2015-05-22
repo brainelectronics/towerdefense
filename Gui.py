@@ -25,7 +25,8 @@ class Window(pyglet.window.Window):
 
     def on_mouse_press(self, x, y, button, modifiers):
         # detect where the click goes (tower -> upgrade menu, building place, etc...)
-        # maybe a (x,y) grid might be useful instead ob the list so an iteration over the list is unnecessary
+        # maybe a (x,y) grid might be useful instead ob the list so an iteration
+        # over the list is unnecessary
         x = int(x / 50) * 50
         y = int(y / 50) * 50
         if button == pyglet.window.mouse.LEFT:
@@ -42,13 +43,7 @@ class Window(pyglet.window.Window):
 
         batch = pyglet.graphics.Batch()
         pyglet.gl.glPointSize(3)
-        #vertex_list = pyglet.graphics.vertex_list(1,('v2i', (10, 15, 30, 35)))
-        """
-        vertex_list = batch.add(1, pyglet.gl.GL_POINTS, None,
-            ('v2i', (10, 15)),
-            ('c3B', (0, 0, 255)))
-        #vertex_list.draw(pyglet.gl.GL_POINTS)
-        """
+        
         for mob in self.dict_objects['mobs']:
             """
             pyglet.text.Label("M", font_size=30,
@@ -57,8 +52,6 @@ class Window(pyglet.window.Window):
             """
             #print("Mob x=%d y=%d" %(mob[0], mob[1]))
             #redDot.blit((mob[0] + 25), (mob[1] + 25))
-            #pyglet.graphics.draw(1, pyglet.gl.GL_POINTS,
-             #   ('c3B', (mob[0]+ 25, mob[1]+ 25)))
             vertex_list = batch.add(1, pyglet.gl.GL_POINTS,None,
                 ('v2i', (mob[0]+25, mob[1]+25)),
                 ('c3B', (0, 255, 0)))
@@ -73,8 +66,6 @@ class Window(pyglet.window.Window):
             #   %(tower[0], type(tower[0]), tower[1], type(tower[1])))
             #blueDot.blit(tower[0], tower[1])
             #redDot.blit(350,200)
-            #pyglet.graphics.draw(1, pyglet.gl.GL_POINTS,
-             #   ('v2i', (tower[0]+ 25, tower[1]+ 25)))
             vertex_list = batch.add(1, pyglet.gl.GL_POINTS,None,
                 ('v2i', (tower[0]+25, tower[1]+25)),
                 ('c3B', (0, 0, 255)))
